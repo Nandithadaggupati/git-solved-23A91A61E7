@@ -1,0 +1,21 @@
+* 31772c7 (HEAD -> main, origin/main) docs: Add changelog
+| * 28af247 (feature/another-feature) Bad commit
+|/  
+| * 72606f4 (origin/feature/another-feature) feat: Add test feature
+|/  
+* c277ccf (tag: v1.0.0) docs: Update README
+* 60b4839 docs: Add FAQ section
+| * 645ab5f (origin/feature/new-feature, feature/new-feature) Add new feature
+|/  
+* 9d9578c Fix: resolve changes to package.json after merge
+*   0946821 Merge branch 'conflict-simulator'
+|\  
+| * d3dd9b2 (origin/conflict-simulator, instructor/conflict-simulator, conflict-simulator) updating conflict-simulator
+* |   e37fb01 merge: Resolve all conflicts between main and dev branches
+|\ \  
+| * | 02011a5 (origin/dev, instructor/dev, dev) updating dev
+| |/  
+* | 0312c6f (instructor/main, instructor/HEAD) updating main
+* | fadfd24 Revise README for DevOps Simulator project
+|/  
+* ae630eb Initial commit
