@@ -23,3 +23,11 @@ features:
   auto_scaling: true
   load_balancer: enabled
   backup_enabled: true
+  # Optional dev features can be toggled if needed
+  experimental_features: false
+  
+# Optional notifications from dev branch (disabled by default)
+notifications:
+  slack_webhook: ""
+  discord_webhook: ""
+  email_alerts: false
