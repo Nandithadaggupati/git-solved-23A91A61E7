@@ -1,33 +1,54 @@
-# Production Application Configuration
+# DevOpsSimulator Application Configuration
+
 application:
   name: DevOpsSimulator
-  version: 1.0.0
-  environment: production
-  
+  version: 3.0.0-experimental
+  environment: production  # Can be overridden: production / development / testing
+  experimental_mode: false  # Set true for experimental/testing mode
+
 server:
   host: 0.0.0.0
-  port: 8080
+  port: 8080                   # Default production port
   ssl_enabled: true
-  
+  multi_port: []               # Only used in experimental mode
+
 logging:
-  level: INFO
-  format: json
+  level: INFO                  # TRACE for experimental mode
+  format: json                 # structured for experimental mode
   output: /var/log/app.log
-  
+  ai_analysis: false           # Enable in experimental mode
+
 database:
-  host: prod-db.example.com
+  host: prod-db.example.com    # dev / experimental hosts override this
   port: 5432
   name: devops_prod
-  
+  distributed: false           # true for experimental mode
+
 features:
-  auto_scaling: true
-  load_balancer: enabled
+  auto_scaling: true           # advanced for experimental
+  load_balancer: enabled       # ai-optimized for experimental
   backup_enabled: true
-  # Optional dev features can be toggled if needed
+  chaos_engineering: false     # enabled in experimental
   experimental_features: false
-  
-# Optional notifications from dev branch (disabled by default)
-notifications:
+
+ai_features:                  # Only for experimental/testing mode
+  predictive_scaling: false
+  anomaly_detection: false
+  auto_optimization: false
+  model_version: ""
+
+cloud_providers:               # Only relevant in experimental mode
+  - aws
+  - azure
+  - gcp
+  - digitalocean
+
+security:
+  zero_trust: false           # true in experimental mode
+  encryption: AES-256
+  audit_logging: standard      # comprehensive in experimental mode
+
+notifications:                # Production + Development
   slack_webhook: ""
   discord_webhook: ""
   email_alerts: false

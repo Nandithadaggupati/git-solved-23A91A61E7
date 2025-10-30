@@ -1,89 +1,107 @@
-# System Architecture
+system_architecture:
 
-## Overview
-DevOps Simulator follows a microservices architecture designed for high availability and scalability.
+  overview: >
+    DevOps Simulator follows a modular microservices architecture designed
+    for high availability, scalability, and experimental AI/ML integration.
+    Experimental features are available only in testing/development environments.
 
----
+  application_server:
+    technology: "Node.js + Express"
+    experimental_tech: "TensorFlow.js (optional)"
+    ports:
+      production: 8080
+      development: 3000
+      experimental:
+        main: 9000
+        metrics: 9001
+        ai_api: 9002
+    scaling:
+      production: "Horizontal auto-scaling enabled"
+      development: "Manual single instance"
+      experimental: "AI-powered predictive auto-scaling"
+    debugging:
+      development: "Chrome DevTools on port 9229, hot reload enabled"
+      experimental: "Real-time ML inference & Apache Kafka message queue"
 
-## Components
+  database_layer:
+    database: "PostgreSQL 14"
+    production:
+      replication: "Master-slave"
+      backups: "Daily automated"
+      ssl: true
+    development:
+      replication: "Single instance"
+      backups: "Manual only"
+      auto_seed: true
+    experimental:
+      replication: "Distributed multi-master cluster"
+      cache: "Redis cluster with AI optimization"
+      backups: "Continuous geo-redundant"
+      ai_features:
+        - "Query optimization"
+        - "Index suggestions"
 
-### 1. Application Server
-- **Technology**: Node.js + Express
-- **Production Port**: 8080
-- **Development Port**: 3000
-- **Scaling**:
-  - Production: Horizontal auto-scaling enabled
-  - Development: Manual (single instance)
-- **Debugging**:
-  - Development only: Chrome DevTools debugger on port 9229, hot reload enabled
+  monitoring_observability:
+    production:
+      tools: ["Prometheus", "Grafana"]
+      metrics: ["CPU", "Memory", "Disk", "Network"]
+      alerts: "Email notifications"
+    development:
+      tools: ["Console logging", "Optional Prometheus"]
+      metrics: ["CPU", "Memory", "Disk", "Network", "Build time"]
+      dashboard: "In-development web interface"
+    experimental:
+      tools: ["Prometheus", "Thanos", "ELK Stack"]
+      ai_analysis: true
+      anomaly_detection: true
 
-### 2. Database Layer
-- **Database**: PostgreSQL 14
-- **Production Configuration**: Master-slave replication, daily automated backups
-- **Development Configuration**:
-  - Local single instance
-  - Manual backups only
-  - Auto-seed with test data on startup
+  container_orchestration:
+    development:
+      tool: "Docker Compose"
+      services: ["App", "Database", "Redis"]
+      volume_mounts: "Hot reload enabled"
+    experimental:
+      tool: "Kubernetes multi-cloud"
+      clouds: ["AWS", "Azure", "GCP", "DigitalOcean"]
+      load_balancing: "Global anycast with GeoDNS"
+      failover: "Automatic cross-cloud"
 
-### 3. Monitoring System
-- **Production**:
-  - Tool: Prometheus + Grafana
-  - Metrics: CPU, Memory, Disk, Network
-  - Alerts: Email notifications for critical issues
-- **Development**:
-  - Tool: Console logging + optional Prometheus
-  - Metrics: CPU, Memory, Disk, Network, Build time
-  - Alerts: Console warnings
-  - Dashboard: In-development web dashboard
+  authentication_security:
+    production:
+      ssl_tls: true
+      db_encryption: true
+      audits: "Regular"
+    development:
+      auth_method: "OAuth2 + JWT"
+      session_storage: "Redis"
+      debug_endpoints: true
+    experimental:
+      zero_trust: true
+      encryption: "AES-256"
+      audit_logging: "Comprehensive"
 
-### 4. Container Orchestration (Development Only)
-- **Tool**: Docker Compose (local)
-- **Services**: App, Database, Redis cache
-- **Volume Mounts**: Code directory for hot reload
+  deployment_strategy:
+    production:
+      method: "Rolling updates"
+      zero_downtime: true
+      rollback: "Automated on failure"
+    development:
+      method: "Docker Compose with hot reload"
+      rollback: "Git previous commit"
+    experimental:
+      method: "Event-driven with AI auto-scaling"
+      chaos_engineering: true
 
-### 5. Authentication System (Development Only, Beta)
-- **Method**: OAuth2 + JWT
-- **Providers**: Google, GitHub (for testing)
-- **Sessions**: Redis-based session storage
+  development_workflow:
+    steps:
+      - "Make code changes"
+      - "Auto-reload triggers rebuild"
+      - "Run unit tests"
+      - "Check console logs and AI feedback (experimental mode)"
+      - "Commit when ready"
 
----
-
-## Deployment Strategy
-- **Production**:
-  - Method: Rolling updates
-  - Zero-downtime: Yes
-  - Rollback: Automated on failure
-- **Development**:
-  - Method: Docker Compose with hot reload
-  - Zero-downtime: Not applicable
-  - Rollback: Git checkout previous commit
-
----
-
-## Development Workflow
-1. Make code changes
-2. Auto-reload triggers rebuild
-3. Run unit tests
-4. Check console logs
-5. Commit when ready
-
----
-
-## Security
-- **Production**:
-  - SSL/TLS encryption
-  - Database connection encryption
-  - Regular security audits
-- **Development**:
-  - SSL/TLS disabled for local development
-  - Database credentials in plain text
-  - CORS enabled for all origins
-  - Debug endpoints exposed
-
----
-
-## Experimental Features (Development Only)
-⚠️ **Warning**: The following features are experimental:
-- Multi-cloud deployment
-- AI-powered log analysis
-- Automatic rollback on anomaly detection
+  experimental_features:
+    - "Multi-cloud deployment"
+    - "AI-powered log analysis & anomaly detection"
+    - "Automatic rollback on anomalies"
+    - "Predictive auto-scaling and resource optimization"
